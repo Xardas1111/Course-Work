@@ -1,8 +1,6 @@
 import json
-import dateutil.parser
 from flask import Flask, request
-from database.tables.Region import Region
-from database.tables.RegistrationForm import AbstractTable
+from database.tables import AbstractTable
 
 app = Flask(__name__)
 
