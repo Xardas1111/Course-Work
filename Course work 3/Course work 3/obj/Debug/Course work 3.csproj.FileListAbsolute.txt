@@ -1,0 +1,24 @@
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\bin\Debug\Course work 3.exe.config
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\bin\Debug\Course work 3.exe
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\bin\Debug\Course work 3.pdb
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\obj\Debug\Course work 3.csprojResolveAssemblyReference.cache
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\obj\Debug\Course_work_3.Form1.resources
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\obj\Debug\Course_work_3.Properties.Resources.resources
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\obj\Debug\Course work 3.csproj.GenerateResource.Cache
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\obj\Debug\Course work 3.exe
+c:\users\студент\documents\visual studio 2012\Projects\Course work 3\Course work 3\obj\Debug\Course work 3.pdb
+C:\Users\студент\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\bin\Debug\Course work 3.exe.config
+C:\Users\студент\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\obj\Debug\Course work 3.exe
+C:\Users\студент\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\obj\Debug\Course work 3.pdb
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\bin\Debug\Course work 3.exe.config
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\obj\Debug\Course work 3.exe
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\obj\Debug\Course work 3.pdb
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\bin\Debug\Course work 3.exe
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\bin\Debug\Course work 3.pdb
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\obj\Debug\Course work 3.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\obj\Debug\Course_work_3.Form1.resources
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\obj\Debug\Course_work_3.Properties.Resources.resources
+D:\Documents\GitHub\Course_work_DATABASE\Course work 3\Course work 3\obj\Debug\Course work 3.csproj.GenerateResource.Cache
+C:\Users\Dima\AppData\Roaming\Skype\My Skype Received Files\Course work 3\Course work 3\Course work 3\bin\Debug\Course work 3.exe.config
+C:\Users\Dima\AppData\Roaming\Skype\My Skype Received Files\Course work 3\Course work 3\Course work 3\obj\Debug\Course work 3.exe
+C:\Users\Dima\AppData\Roaming\Skype\My Skype Received Files\Course work 3\Course work 3\Course work 3\obj\Debug\Course work 3.pdb
