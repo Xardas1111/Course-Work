@@ -74,9 +74,21 @@
             this.rec_act_accident_type = new System.Windows.Forms.TextBox();
             this.rec_act_name = new System.Windows.Forms.TextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.date_from = new System.Windows.Forms.DateTimePicker();
+            this.date_to = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rep_type_of_accident = new System.Windows.Forms.ComboBox();
+            this.rep_object = new System.Windows.Forms.ComboBox();
+            this.rep_settlement = new System.Windows.Forms.ComboBox();
+            this.rep_region = new System.Windows.Forms.ComboBox();
+            this.rep_country = new System.Windows.Forms.ComboBox();
+            this.rep_make = new System.Windows.Forms.Button();
+            this.rep_discard = new System.Windows.Forms.Button();
             this.Admin.SuspendLayout();
             this.Registration.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.Report.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.A_object_management.SuspendLayout();
             this.A_accident_types.SuspendLayout();
@@ -256,6 +268,17 @@
             // 
             // Report
             // 
+            this.Report.Controls.Add(this.rep_discard);
+            this.Report.Controls.Add(this.rep_make);
+            this.Report.Controls.Add(this.rep_type_of_accident);
+            this.Report.Controls.Add(this.rep_object);
+            this.Report.Controls.Add(this.rep_settlement);
+            this.Report.Controls.Add(this.rep_region);
+            this.Report.Controls.Add(this.rep_country);
+            this.Report.Controls.Add(this.label2);
+            this.Report.Controls.Add(this.label1);
+            this.Report.Controls.Add(this.date_to);
+            this.Report.Controls.Add(this.date_from);
             this.Report.Location = new System.Drawing.Point(4, 22);
             this.Report.Name = "Report";
             this.Report.Padding = new System.Windows.Forms.Padding(3);
@@ -534,6 +557,101 @@
             this.richTextBox3.TabIndex = 9;
             this.richTextBox3.Text = "Description";
             // 
+            // date_from
+            // 
+            this.date_from.Location = new System.Drawing.Point(6, 167);
+            this.date_from.Name = "date_from";
+            this.date_from.Size = new System.Drawing.Size(167, 20);
+            this.date_from.TabIndex = 11;
+            // 
+            // date_to
+            // 
+            this.date_to.Location = new System.Drawing.Point(6, 208);
+            this.date_to.Name = "date_to";
+            this.date_to.Size = new System.Drawing.Size(167, 20);
+            this.date_to.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "From";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 192);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(20, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "To";
+            // 
+            // rep_type_of_accident
+            // 
+            this.rep_type_of_accident.FormattingEnabled = true;
+            this.rep_type_of_accident.Location = new System.Drawing.Point(6, 117);
+            this.rep_type_of_accident.Name = "rep_type_of_accident";
+            this.rep_type_of_accident.Size = new System.Drawing.Size(167, 21);
+            this.rep_type_of_accident.TabIndex = 19;
+            this.rep_type_of_accident.Text = "Type of accident";
+            // 
+            // rep_object
+            // 
+            this.rep_object.FormattingEnabled = true;
+            this.rep_object.Location = new System.Drawing.Point(6, 90);
+            this.rep_object.Name = "rep_object";
+            this.rep_object.Size = new System.Drawing.Size(167, 21);
+            this.rep_object.TabIndex = 18;
+            this.rep_object.Text = "Object";
+            // 
+            // rep_settlement
+            // 
+            this.rep_settlement.FormattingEnabled = true;
+            this.rep_settlement.Location = new System.Drawing.Point(6, 63);
+            this.rep_settlement.Name = "rep_settlement";
+            this.rep_settlement.Size = new System.Drawing.Size(167, 21);
+            this.rep_settlement.TabIndex = 17;
+            this.rep_settlement.Text = "Settlement";
+            // 
+            // rep_region
+            // 
+            this.rep_region.FormattingEnabled = true;
+            this.rep_region.Location = new System.Drawing.Point(6, 36);
+            this.rep_region.Name = "rep_region";
+            this.rep_region.Size = new System.Drawing.Size(167, 21);
+            this.rep_region.TabIndex = 16;
+            this.rep_region.Text = "Region";
+            // 
+            // rep_country
+            // 
+            this.rep_country.FormattingEnabled = true;
+            this.rep_country.Location = new System.Drawing.Point(6, 9);
+            this.rep_country.Name = "rep_country";
+            this.rep_country.Size = new System.Drawing.Size(167, 21);
+            this.rep_country.TabIndex = 15;
+            this.rep_country.Text = "Country";
+            // 
+            // rep_make
+            // 
+            this.rep_make.Location = new System.Drawing.Point(6, 242);
+            this.rep_make.Name = "rep_make";
+            this.rep_make.Size = new System.Drawing.Size(167, 23);
+            this.rep_make.TabIndex = 20;
+            this.rep_make.Text = "Make reports";
+            this.rep_make.UseVisualStyleBackColor = true;
+            // 
+            // rep_discard
+            // 
+            this.rep_discard.Location = new System.Drawing.Point(6, 312);
+            this.rep_discard.Name = "rep_discard";
+            this.rep_discard.Size = new System.Drawing.Size(167, 23);
+            this.rep_discard.TabIndex = 21;
+            this.rep_discard.Text = "Discard";
+            this.rep_discard.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,6 +665,8 @@
             this.Registration.ResumeLayout(false);
             this.Registration.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.Report.ResumeLayout(false);
+            this.Report.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.A_object_management.ResumeLayout(false);
@@ -607,6 +727,17 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Button rep_discard;
+        private System.Windows.Forms.Button rep_make;
+        private System.Windows.Forms.ComboBox rep_type_of_accident;
+        private System.Windows.Forms.ComboBox rep_object;
+        private System.Windows.Forms.ComboBox rep_settlement;
+        private System.Windows.Forms.ComboBox rep_region;
+        private System.Windows.Forms.ComboBox rep_country;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker date_to;
+        private System.Windows.Forms.DateTimePicker date_from;
 
     }
 }

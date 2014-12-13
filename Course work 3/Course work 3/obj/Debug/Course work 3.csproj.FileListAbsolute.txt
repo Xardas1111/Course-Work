@@ -25,3 +25,9 @@ C:\Users\Dima\AppData\Roaming\Skype\My Skype Received Files\Course work 3\Course
 C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\bin\Debug\Course work 3.exe.config
 C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course work 3.exe
 C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course work 3.pdb
+C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\bin\Debug\Course work 3.exe
+C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\bin\Debug\Course work 3.pdb
+C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course work 3.csprojResolveAssemblyReference.cache
+C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course_work_3.Form1.resources
+C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course_work_3.Properties.Resources.resources
+C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course work 3.csproj.GenerateResource.Cache
