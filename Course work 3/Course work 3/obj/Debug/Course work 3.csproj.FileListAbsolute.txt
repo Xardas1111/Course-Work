@@ -31,3 +31,13 @@ C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug
 C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course_work_3.Form1.resources
 C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course_work_3.Properties.Resources.resources
 C:\Users\Dima\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course work 3.csproj.GenerateResource.Cache
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\bin\Debug\Course work 3.exe.config
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\obj\Debug\Course work 3.exe
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\obj\Debug\Course work 3.pdb
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\bin\Debug\Course work 3.exe
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\bin\Debug\Course work 3.pdb
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\obj\Debug\Course work 3.csprojResolveAssemblyReference.cache
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\obj\Debug\Course_work_3.Form1.resources
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\obj\Debug\Course_work_3.Properties.Resources.resources
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\obj\Debug\Course work 3.csproj.GenerateResource.Cache
+C:\Users\Xardas\Documents\GitHub\Course_work_3\Course work 3\Course work 3\bin\Debug\itextsharp.dll
