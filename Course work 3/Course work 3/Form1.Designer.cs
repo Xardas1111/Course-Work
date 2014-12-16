@@ -62,20 +62,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.rec_act_price = new System.Windows.Forms.TextBox();
+            this.rec_act_desc = new System.Windows.Forms.RichTextBox();
+            this.c_discard_rec = new System.Windows.Forms.Button();
+            this.c_find_rec = new System.Windows.Forms.Button();
+            this.c_delete_rec = new System.Windows.Forms.Button();
+            this.c_add_rec = new System.Windows.Forms.Button();
             this.rec_act_accident_type = new System.Windows.Forms.TextBox();
             this.rec_act_name = new System.Windows.Forms.TextBox();
             this.A_accident_types = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.B_discard_click = new System.Windows.Forms.Button();
+            this.B_find_click = new System.Windows.Forms.Button();
+            this.B_delete_click = new System.Windows.Forms.Button();
+            this.B_add_click = new System.Windows.Forms.Button();
+            this.B_accident_type = new System.Windows.Forms.TextBox();
             this.A_object_management = new System.Windows.Forms.GroupBox();
             this.A_discard = new System.Windows.Forms.Button();
             this.A_object = new System.Windows.Forms.TextBox();
@@ -437,12 +436,11 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.richTextBox3);
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Controls.Add(this.rec_act_price);
+            this.groupBox3.Controls.Add(this.rec_act_desc);
+            this.groupBox3.Controls.Add(this.c_discard_rec);
+            this.groupBox3.Controls.Add(this.c_find_rec);
+            this.groupBox3.Controls.Add(this.c_delete_rec);
+            this.groupBox3.Controls.Add(this.c_add_rec);
             this.groupBox3.Controls.Add(this.rec_act_accident_type);
             this.groupBox3.Controls.Add(this.rec_act_name);
             this.groupBox3.Location = new System.Drawing.Point(362, 6);
@@ -452,61 +450,57 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Recommended actions";
             // 
-            // richTextBox3
+            // rec_act_desc
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(5, 97);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(137, 97);
-            this.richTextBox3.TabIndex = 9;
-            this.richTextBox3.Text = "Description";
+            this.rec_act_desc.Location = new System.Drawing.Point(7, 71);
+            this.rec_act_desc.Name = "rec_act_desc";
+            this.rec_act_desc.Size = new System.Drawing.Size(137, 97);
+            this.rec_act_desc.TabIndex = 9;
+            this.rec_act_desc.Text = "Description";
             // 
-            // button5
+            // c_discard_rec
             // 
-            this.button5.Location = new System.Drawing.Point(3, 300);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(139, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Discard";
-            this.button5.UseVisualStyleBackColor = true;
+            this.c_discard_rec.Location = new System.Drawing.Point(3, 300);
+            this.c_discard_rec.Name = "c_discard_rec";
+            this.c_discard_rec.Size = new System.Drawing.Size(139, 23);
+            this.c_discard_rec.TabIndex = 8;
+            this.c_discard_rec.Text = "Discard";
+            this.c_discard_rec.UseVisualStyleBackColor = true;
+            this.c_discard_rec.Click += new System.EventHandler(this.c_discard_rec_Click);
             // 
-            // button6
+            // c_find_rec
             // 
-            this.button6.Location = new System.Drawing.Point(3, 258);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(139, 23);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Find";
-            this.button6.UseVisualStyleBackColor = true;
+            this.c_find_rec.Location = new System.Drawing.Point(3, 258);
+            this.c_find_rec.Name = "c_find_rec";
+            this.c_find_rec.Size = new System.Drawing.Size(139, 23);
+            this.c_find_rec.TabIndex = 6;
+            this.c_find_rec.Text = "Find";
+            this.c_find_rec.UseVisualStyleBackColor = true;
+            this.c_find_rec.Click += new System.EventHandler(this.c_find_rec_Click);
             // 
-            // button7
+            // c_delete_rec
             // 
-            this.button7.Location = new System.Drawing.Point(3, 229);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(139, 23);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "Delete";
-            this.button7.UseVisualStyleBackColor = true;
+            this.c_delete_rec.Location = new System.Drawing.Point(3, 229);
+            this.c_delete_rec.Name = "c_delete_rec";
+            this.c_delete_rec.Size = new System.Drawing.Size(139, 23);
+            this.c_delete_rec.TabIndex = 5;
+            this.c_delete_rec.Text = "Delete";
+            this.c_delete_rec.UseVisualStyleBackColor = true;
+            this.c_delete_rec.Click += new System.EventHandler(this.c_delete_rec_Click);
             // 
-            // button8
+            // c_add_rec
             // 
-            this.button8.Location = new System.Drawing.Point(3, 200);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(139, 23);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Add";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // rec_act_price
-            // 
-            this.rec_act_price.Location = new System.Drawing.Point(2, 45);
-            this.rec_act_price.Name = "rec_act_price";
-            this.rec_act_price.Size = new System.Drawing.Size(140, 20);
-            this.rec_act_price.TabIndex = 2;
-            this.rec_act_price.Text = "Price";
+            this.c_add_rec.Location = new System.Drawing.Point(3, 200);
+            this.c_add_rec.Name = "c_add_rec";
+            this.c_add_rec.Size = new System.Drawing.Size(139, 23);
+            this.c_add_rec.TabIndex = 4;
+            this.c_add_rec.Text = "Add";
+            this.c_add_rec.UseVisualStyleBackColor = true;
+            this.c_add_rec.Click += new System.EventHandler(this.c_add_rec_Click);
             // 
             // rec_act_accident_type
             // 
-            this.rec_act_accident_type.Location = new System.Drawing.Point(2, 71);
+            this.rec_act_accident_type.Location = new System.Drawing.Point(4, 45);
             this.rec_act_accident_type.Name = "rec_act_accident_type";
             this.rec_act_accident_type.Size = new System.Drawing.Size(140, 20);
             this.rec_act_accident_type.TabIndex = 1;
@@ -514,7 +508,7 @@
             // 
             // rec_act_name
             // 
-            this.rec_act_name.Location = new System.Drawing.Point(2, 19);
+            this.rec_act_name.Location = new System.Drawing.Point(4, 19);
             this.rec_act_name.Name = "rec_act_name";
             this.rec_act_name.Size = new System.Drawing.Size(140, 20);
             this.rec_act_name.TabIndex = 0;
@@ -522,11 +516,11 @@
             // 
             // A_accident_types
             // 
-            this.A_accident_types.Controls.Add(this.button1);
-            this.A_accident_types.Controls.Add(this.button2);
-            this.A_accident_types.Controls.Add(this.button3);
-            this.A_accident_types.Controls.Add(this.button4);
-            this.A_accident_types.Controls.Add(this.textBox4);
+            this.A_accident_types.Controls.Add(this.B_discard_click);
+            this.A_accident_types.Controls.Add(this.B_find_click);
+            this.A_accident_types.Controls.Add(this.B_delete_click);
+            this.A_accident_types.Controls.Add(this.B_add_click);
+            this.A_accident_types.Controls.Add(this.B_accident_type);
             this.A_accident_types.Location = new System.Drawing.Point(184, 6);
             this.A_accident_types.Name = "A_accident_types";
             this.A_accident_types.Size = new System.Drawing.Size(155, 329);
@@ -534,49 +528,53 @@
             this.A_accident_types.TabStop = false;
             this.A_accident_types.Text = "Accident types";
             // 
-            // button1
+            // B_discard_click
             // 
-            this.button1.Location = new System.Drawing.Point(6, 301);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Discard";
-            this.button1.UseVisualStyleBackColor = true;
+            this.B_discard_click.Location = new System.Drawing.Point(6, 301);
+            this.B_discard_click.Name = "B_discard_click";
+            this.B_discard_click.Size = new System.Drawing.Size(139, 23);
+            this.B_discard_click.TabIndex = 8;
+            this.B_discard_click.Text = "Discard";
+            this.B_discard_click.UseVisualStyleBackColor = true;
+            this.B_discard_click.Click += new System.EventHandler(this.b_discard_Click);
             // 
-            // button2
+            // B_find_click
             // 
-            this.button2.Location = new System.Drawing.Point(6, 258);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Find";
-            this.button2.UseVisualStyleBackColor = true;
+            this.B_find_click.Location = new System.Drawing.Point(6, 258);
+            this.B_find_click.Name = "B_find_click";
+            this.B_find_click.Size = new System.Drawing.Size(139, 23);
+            this.B_find_click.TabIndex = 6;
+            this.B_find_click.Text = "Find";
+            this.B_find_click.UseVisualStyleBackColor = true;
+            this.B_find_click.Click += new System.EventHandler(this.b_find_Click);
             // 
-            // button3
+            // B_delete_click
             // 
-            this.button3.Location = new System.Drawing.Point(6, 229);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.B_delete_click.Location = new System.Drawing.Point(6, 229);
+            this.B_delete_click.Name = "B_delete_click";
+            this.B_delete_click.Size = new System.Drawing.Size(139, 23);
+            this.B_delete_click.TabIndex = 5;
+            this.B_delete_click.Text = "Delete";
+            this.B_delete_click.UseVisualStyleBackColor = true;
+            this.B_delete_click.Click += new System.EventHandler(this.b_delete_Click);
             // 
-            // button4
+            // B_add_click
             // 
-            this.button4.Location = new System.Drawing.Point(6, 200);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(139, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
+            this.B_add_click.Location = new System.Drawing.Point(6, 200);
+            this.B_add_click.Name = "B_add_click";
+            this.B_add_click.Size = new System.Drawing.Size(139, 23);
+            this.B_add_click.TabIndex = 4;
+            this.B_add_click.Text = "Add";
+            this.B_add_click.UseVisualStyleBackColor = true;
+            this.B_add_click.Click += new System.EventHandler(this.b_add_Click);
             // 
-            // textBox4
+            // B_accident_type
             // 
-            this.textBox4.Location = new System.Drawing.Point(5, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(140, 20);
-            this.textBox4.TabIndex = 0;
-            this.textBox4.Text = "Name";
+            this.B_accident_type.Location = new System.Drawing.Point(5, 19);
+            this.B_accident_type.Name = "B_accident_type";
+            this.B_accident_type.Size = new System.Drawing.Size(140, 20);
+            this.B_accident_type.TabIndex = 0;
+            this.B_accident_type.Text = "Name";
             // 
             // A_object_management
             // 
@@ -755,20 +753,19 @@
         private System.Windows.Forms.Button A_discard;
         private System.Windows.Forms.TextBox A_object;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox rec_act_price;
+        private System.Windows.Forms.Button c_discard_rec;
+        private System.Windows.Forms.Button c_find_rec;
+        private System.Windows.Forms.Button c_delete_rec;
+        private System.Windows.Forms.Button c_add_rec;
         private System.Windows.Forms.TextBox rec_act_accident_type;
         private System.Windows.Forms.TextBox rec_act_name;
         private System.Windows.Forms.GroupBox A_accident_types;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Button B_discard_click;
+        private System.Windows.Forms.Button B_find_click;
+        private System.Windows.Forms.Button B_delete_click;
+        private System.Windows.Forms.Button B_add_click;
+        private System.Windows.Forms.TextBox B_accident_type;
+        private System.Windows.Forms.RichTextBox rec_act_desc;
         private System.Windows.Forms.Button rep_discard;
         private System.Windows.Forms.Button rep_make;
         private System.Windows.Forms.ComboBox rep_type_of_accident;

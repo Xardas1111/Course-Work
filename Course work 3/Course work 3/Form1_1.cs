@@ -100,7 +100,6 @@ namespace Course_work_3
                     }
                 }
             }
-            label3.Text = action + "";
             if (action == 1)
             {
                 string country_id = "";
@@ -158,7 +157,6 @@ namespace Course_work_3
                                 ServerUpp<OBject, OBject>(object_sender, ref object_receiver);
                                 objectlist.Add(object_receiver.data[0]);
                                 MessageBox.Show("Object added to the database", "!", MessageBoxButtons.OK);
-                                return;
                             }
                         }
                         else
@@ -225,7 +223,6 @@ namespace Course_work_3
                             ServerUpp<Settlement, Settlement>(object_sender, ref object_receiver);
                             settlementlist.Add(object_receiver.data[0]);
                             MessageBox.Show("Settlement added to the database", "!", MessageBoxButtons.OK);
-                            return;
                         }
                     }
                     else
@@ -275,7 +272,6 @@ namespace Course_work_3
                         ServerUpp<Region, Region>(object_sender, ref object_receiver);
                         regionlist.Add(object_receiver.data[0]);
                         MessageBox.Show("Region added to the database", "!", MessageBoxButtons.OK);
-                        return;
                     }
                 }
                 else
@@ -307,9 +303,9 @@ namespace Course_work_3
                     ServerUpp<Country, Country>(object_sender, ref object_receiver);
                     countrylist.Add(object_receiver.data[0]);
                     MessageBox.Show("Country added to the database", "!", MessageBoxButtons.OK);
-                    return;
                 }
             }
+            RefreshData();
         }
         private void A_delete_Click(object sender, EventArgs e)
         {
@@ -449,7 +445,6 @@ namespace Course_work_3
                                 ServerUpp<OBject, OBject>(object_sender, ref object_receiver);
                                 objectlist.Remove(item);
                                 MessageBox.Show("Object has been deleted", "!", MessageBoxButtons.OK);
-                                return;
                             }
                         }
                         else
@@ -516,7 +511,6 @@ namespace Course_work_3
                             ServerUpp<Settlement, Settlement>(object_sender, ref object_receiver);
                             settlementlist.Remove(item);
                             MessageBox.Show("Settlement has been deleted", "!", MessageBoxButtons.OK);
-                            return;
                         }
                     }
                     else
@@ -565,8 +559,7 @@ namespace Course_work_3
                         SendingRequest<Region> object_sender = new SendingRequest<Region>("delete", "Region", item);
                         ServerUpp<Region, Region>(object_sender, ref object_receiver);
                         regionlist.Remove(item);
-                        MessageBox.Show("Region has been deleted", "!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        MessageBox.Show("Region has been deleted", "!", MessageBoxButtons.OK);
                     }
                 }
                 else
@@ -598,9 +591,9 @@ namespace Course_work_3
                     ServerUpp<Country, Country>(object_sender, ref object_receiver);
                     countrylist.Add(object_receiver.data[0]);
                     MessageBox.Show("Country added to the database", "!", MessageBoxButtons.OK);
-                    return;
                 }
             }
+            RefreshData();
         }
         private void A_discard_Click(object sender, EventArgs e)
         {
@@ -752,7 +745,7 @@ namespace Course_work_3
                         var doc = new Document();
                         PdfWriter.GetInstance(doc, new FileStream("Report.pdf", FileMode.OpenOrCreate));
                         doc.Open();
-                        doc.Add(new Phrase("Settlements in country " + A_country.Text + "" + "and region" + A_region.Text + ":" + "\n", boldfont));
+                        doc.Add(new Phrase("Settlements in country " + A_country.Text + "" + " and region " + A_region.Text + ":" + "\n", boldfont));
                         for (int i = 0; i < settlementlist.Count; i++)
                         {
                             if (settlementlist[i].region == region_id)
@@ -798,20 +791,110 @@ namespace Course_work_3
                     }
                     if (region_id != "")
                     {
-                        var boldfont = FontFactory.GetFont(FontFactory.TIMES_BOLD, 14);
-                        var font = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12);
-                        var doc = new Document();
-                        PdfWriter.GetInstance(doc, new FileStream("Report.pdf", FileMode.OpenOrCreate));
-                        doc.Open();
-                        doc.Add(new Phrase("Settlements in country " + A_country.Text + "" + "and region" + A_region.Text + ":" + "\n", boldfont));
+                        string settlement_id = "";
                         for (int i = 0; i < settlementlist.Count; i++)
                         {
-                            if (settlementlist[i].region == region_id)
+                            if ((A_settlement.Text == settlementlist[i].name) && (settlementlist[i].region == region_id))
                             {
-                                doc.Add(new Phrase(settlementlist[i].name + ";\n", font));
+                                settlement_id = settlementlist[i].id;
+                                break;
                             }
                         }
-                        doc.Close();
+                        if (settlement_id != "")
+                        {
+                            var boldfont = FontFactory.GetFont(FontFactory.TIMES_BOLD, 14);
+                            var font = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12);
+                            var doc = new Document();
+                            PdfWriter.GetInstance(doc, new FileStream("Report.pdf", FileMode.OpenOrCreate));
+                            doc.Open();
+                            doc.Add(new Phrase("Objects in settlement " + A_settlement.Text + " and region "+ A_region.Text + " and country " + A_country.Text + ":" + "\n", boldfont));
+                            for (int i = 0; i < objectlist.Count; i++)
+                            {
+                                if (objectlist[i].settlement == settlement_id)
+                                {
+                                    doc.Add(new Phrase(objectlist[i].name + ";\n", font));
+                                }
+                            }
+                            doc.Close();
+                        }
+                        else 
+                        {
+                            MessageBox.Show("No such settlement", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No such region", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No such country", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (action == 1) 
+            {
+                string country_id = "";
+                for (int i = 0; i < countrylist.Count; i++)
+                {
+                    if (A_country.Text == countrylist[i].name)
+                    {
+                        country_id = countrylist[i].id;
+                        break;
+                    }
+                }
+                if (country_id != "")
+                {
+                    string region_id = "";
+                    for (int i = 0; i < regionlist.Count; i++)
+                    {
+                        if ((A_region.Text == regionlist[i].name) && (regionlist[i].country == country_id))
+                        {
+                            region_id = regionlist[i].id;
+                            break;
+                        }
+                    }
+                    if (region_id != "")
+                    {
+                        string settlement_id = "";
+                        for (int i = 0; i < settlementlist.Count; i++)
+                        {
+                            if ((A_settlement.Text == settlementlist[i].name) && (settlementlist[i].region == region_id))
+                            {
+                                settlement_id = settlementlist[i].id;
+                                break;
+                            }
+                        }
+                        if (settlement_id != "")
+                        {
+                            string object_id = "";
+                            for (int i = 0; i < objectlist.Count; i++)
+                            {
+                                if ((A_object.Text == objectlist[i].name) && (objectlist[i].settlement == settlement_id))
+                                {
+                                    object_id = objectlist[i].id;
+                                    break;
+                                }
+                            }
+                            if (object_id != "")
+                            {
+                                MessageBox.Show("Match!", "Result", MessageBoxButtons.OK);
+                                return;
+                            }
+                            else 
+                            {
+                                MessageBox.Show("Not a match", "Fail", MessageBoxButtons.OK);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No such settlement", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                     else
                     {

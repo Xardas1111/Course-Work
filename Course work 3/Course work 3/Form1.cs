@@ -42,7 +42,7 @@ namespace Course_work_3
             Type_of_accident.Text = "Accident Type";
             Budget.Text = "Budget";
             Executed_action_text.Text = "";
-            Description.Text = "Descriptiob of the accident";
+            Description.Text = "Description of the accident";
             executedactionlist.Clear();
         }
 
@@ -53,42 +53,7 @@ namespace Course_work_3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //executedactionlist = new List<ExecutedAction>();
-            //Country.Items.Clear();
-            //Type_of_accident.Items.Clear();
-            //countrylist = new List<ConsoleApplication1.Country>();
-            //Receiver<Country> country_receiver = new Receiver<ConsoleApplication1.Country>();
-            //SendingRequest<Country> country_sender = new SendingRequest<Country>("get", "Country", new Country());
-            //ServerUpp<Country, Country>(country_sender, ref country_receiver);
-            //countrylist = country_receiver.data;
-            //for (int i = 0; i < country_receiver.data.Count; i++)
-            //{
-            //    Country.Items.Add(country_receiver.data[i].name);
-            //}
-            //Receiver<Region> Region_receiver = new Receiver<ConsoleApplication1.Region>();
-            //SendingRequest<Region> Region_sender = new SendingRequest<Region>("get", "Region", new Region());
-            //ServerUpp<Region, Region>(Region_sender, ref Region_receiver);
-            //regionlist = Region_receiver.data;
-            //Receiver<Settlement> Settlement_receiver = new Receiver<ConsoleApplication1.Settlement>();
-            //SendingRequest<Settlement> Settlement_sender = new SendingRequest<Settlement>("get", "Settlement", new Settlement());
-            //ServerUpp<Settlement, Settlement>(Settlement_sender, ref Settlement_receiver);
-            //settlementlist = Settlement_receiver.data;
-            //Receiver<OBject> object_receiver = new Receiver<ConsoleApplication1.OBject>();
-            //SendingRequest<OBject> object_sender = new SendingRequest<OBject>("get", "Object", new OBject());
-            //ServerUpp<OBject, OBject>(object_sender, ref object_receiver);
-            //objectlist = object_receiver.data;
-            //Receiver<AccidentType> AccidentType_receiver = new Receiver<ConsoleApplication1.AccidentType>();
-            //SendingRequest<AccidentType> AccidentType_sender = new SendingRequest<AccidentType>("get", "AccidentType", new AccidentType());
-            //ServerUpp<AccidentType, AccidentType>(AccidentType_sender, ref AccidentType_receiver);
-            //typelist = AccidentType_receiver.data;
-            //for (int i = 0; i < typelist.Count; i++)
-            //{
-            //    Type_of_accident.Items.Add(typelist[i].name);
-            //}
-            //Receiver<Stage> Stage_receiver = new Receiver<Stage>();
-            //SendingRequest<Stage> Stage_sender = new SendingRequest<Stage>("get", "Stage", new Stage());
-            //ServerUpp<Stage, Stage>(Stage_sender, ref Stage_receiver);
-            //stagelist = Stage_receiver.data;
+            RefreshData();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -176,11 +141,7 @@ namespace Course_work_3
             }
                 if (DialogResult.Yes == MessageBox.Show("Event Registered!!1 Do you want to print a report?", "?", MessageBoxButtons.YesNo))
                 {
-                    SendingRequest<RecommendedActions> req = new SendingRequest<RecommendedActions>("find", "RecommendedActions", new RecommendedActions("", "", form.Accident_Type, "")) ;
-                    Receiver<RecommendedActions> rec = new Receiver<RecommendedActions>();
-                    recommendedactionlist = rec.data;
                     PrintReport(form, Country.Text, Region.Text, Settlement.Text, Object.Text);
-                    recommendedactionlist.Clear();
                 }
             executedactionlist.Clear();
         }
@@ -313,15 +274,22 @@ namespace Course_work_3
             doc.Add(new Phrase("Type: " + type + "\n", font));
             doc.Add(new Phrase("Located money: " + form.located_money + "\n", font));
             doc.Add(new Phrase("Used money: " + form.used_money + "\n", font));
-            doc.Add(new Phrase("Recommended Actions: " + ect + "\n", boldfont));
+            doc.Add(new Phrase("Time: "+ form.Date +"\n", font));
+            doc.Add(new Phrase("Commentary: " + form.Commentary + "\n", font));
+            doc.Add(new Phrase("Recommended Actions: " + "\n", boldfont));
             for (int i = 0; i < recommendedactionlist.Count; i++) 
             {
-                doc.Add(new Phrase(recommendedactionlist[i].name + ":" + "\n", font));
-                doc.Add(new Phrase("Description:" + recommendedactionlist[i].Description + "\n", font));
+                if (form.Accident_Type == recommendedactionlist[i].Accident_Type)
+                {
+                    doc.Add(new Phrase("Next action: " + "\n", font));
+                    doc.Add(new Phrase(recommendedactionlist[i].name + ":" + "\n", font));
+                    doc.Add(new Phrase("Description:" + recommendedactionlist[i].Description + "\n", font));
+                }
             }
-            doc.Add(new Phrase("Executed Actions: " + ect, boldfont));
+            doc.Add(new Phrase("Executed Actions: " + "\n", boldfont));
             for (int i = 0; i < executedactionlist.Count; i++)
             {
+                doc.Add(new Phrase("Next action: "+"\n", font));
                 doc.Add(new Phrase("Date:" + executedactionlist[i].Date + "\n", font));
                 doc.Add(new Phrase("Price:" + executedactionlist[i].price + "\n", font));
                 doc.Add(new Phrase("Description:" + executedactionlist[i].Description + "\n", font));
@@ -334,6 +302,87 @@ namespace Course_work_3
         {
             executedactionlist.Clear();
             Executed_action_text.Text = "Actions erased. Ready for typing";
+        }
+        private void b_discard_Click(object sender, EventArgs e)
+        {
+            B_accident_type.Text = "Name";
+        }
+
+        private void b_find_Click(object sender, EventArgs e)
+        {
+            string type_id = "";
+            for (int i = 0; i < typelist.Count; i++) 
+            {
+                if (B_accident_type.Text == typelist[i].name) 
+                {
+                    type_id = typelist[i].id;
+                    MessageBox.Show("You have a match!", "Result.", MessageBoxButtons.OK);
+                    break;
+                }
+            }
+            if (type_id == "")
+            {
+                MessageBox.Show("Not a match!","Result",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void b_delete_Click(object sender, EventArgs e)
+        {
+            string accident_id = "";
+            for (int i = 0; i < typelist.Count; i++)
+            {
+                if (B_accident_type.Text == typelist[i].name)
+                {
+                    accident_id = typelist[i].id;
+                    break;
+                }
+            }
+            if (accident_id == "")
+            {
+                MessageBox.Show("Type does not exist", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else 
+            {
+                ConsoleApplication1.AccidentType item = new AccidentType(B_accident_type.Text, accident_id);
+                Receiver<AccidentType> object_receiver = new Receiver<ConsoleApplication1.AccidentType>();
+                SendingRequest<AccidentType> object_sender = new SendingRequest<AccidentType>("delete", "AccidentType", item);
+                ServerUpp<AccidentType, AccidentType>(object_sender, ref object_receiver);
+                typelist.Remove(item);
+                MessageBox.Show("Object added to the database", "!", MessageBoxButtons.OK);
+                RefreshData();
+                return;
+            }
+        }
+
+        private void b_add_Click(object sender, EventArgs e)
+        {
+            string accident_id = "";
+            for (int i = 0; i < typelist.Count; i++) 
+            {
+                if (B_accident_type.Text == typelist[i].name) 
+                {
+                    accident_id = typelist[i].id;
+                    break;
+                }
+            }
+            if (accident_id != "")
+            {
+                MessageBox.Show("Type already exists", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else 
+            {
+                ConsoleApplication1.AccidentType item = new AccidentType(B_accident_type.Text,"");
+                Receiver<AccidentType> object_receiver = new Receiver<ConsoleApplication1.AccidentType>();
+                SendingRequest<AccidentType> object_sender = new SendingRequest<AccidentType>("set", "AccidentType", item);
+                ServerUpp<AccidentType, AccidentType>(object_sender, ref object_receiver);
+                typelist.Add(object_receiver.data[0]);
+                MessageBox.Show("Object added to the database", "!", MessageBoxButtons.OK);
+                RefreshData();
+                return;
+            }
         }
     }
 }

@@ -20,5 +20,10 @@ namespace ConsoleApplication1
             name = "";
             id = "";
         }
+        public AccidentType(string name, string id)
+        {
+            this.name = name;
+            this.id = id;
+        }
     }
 }
