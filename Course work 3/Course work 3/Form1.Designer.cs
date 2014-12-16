@@ -32,6 +32,7 @@
             this.Registration = new System.Windows.Forms.TabPage();
             this.Budget = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Price = new System.Windows.Forms.TextBox();
             this.Add_action = new System.Windows.Forms.Button();
             this.Calcel = new System.Windows.Forms.Button();
             this.Executed_action_text = new System.Windows.Forms.RichTextBox();
@@ -58,6 +59,7 @@
             this.date_to = new System.Windows.Forms.DateTimePicker();
             this.date_from = new System.Windows.Forms.DateTimePicker();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
@@ -141,6 +143,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Price);
             this.groupBox1.Controls.Add(this.Add_action);
             this.groupBox1.Controls.Add(this.Calcel);
             this.groupBox1.Controls.Add(this.Executed_action_text);
@@ -152,9 +155,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Executed Actions";
             // 
+            // Price
+            // 
+            this.Price.Location = new System.Drawing.Point(7, 228);
+            this.Price.Name = "Price";
+            this.Price.Size = new System.Drawing.Size(200, 20);
+            this.Price.TabIndex = 14;
+            this.Price.Text = "Price";
+            // 
             // Add_action
             // 
-            this.Add_action.Location = new System.Drawing.Point(203, 228);
+            this.Add_action.Location = new System.Drawing.Point(320, 228);
             this.Add_action.Name = "Add_action";
             this.Add_action.Size = new System.Drawing.Size(75, 23);
             this.Add_action.TabIndex = 13;
@@ -164,7 +175,7 @@
             // 
             // Calcel
             // 
-            this.Calcel.Location = new System.Drawing.Point(113, 228);
+            this.Calcel.Location = new System.Drawing.Point(230, 228);
             this.Calcel.Name = "Calcel";
             this.Calcel.Size = new System.Drawing.Size(75, 23);
             this.Calcel.TabIndex = 12;
@@ -199,7 +210,7 @@
             // Submit
             // 
             this.Submit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Submit.Location = new System.Drawing.Point(503, 287);
+            this.Submit.Location = new System.Drawing.Point(551, 301);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(117, 34);
             this.Submit.TabIndex = 7;
@@ -210,7 +221,7 @@
             // Discard
             // 
             this.Discard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Discard.Location = new System.Drawing.Point(287, 287);
+            this.Discard.Location = new System.Drawing.Point(306, 301);
             this.Discard.Name = "Discard";
             this.Discard.Size = new System.Drawing.Size(117, 34);
             this.Discard.TabIndex = 6;
@@ -390,6 +401,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.Logout);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.A_accident_types);
@@ -404,6 +416,15 @@
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Admin";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(637, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "label3";
             // 
             // Logout
             // 
@@ -608,6 +629,7 @@
             this.A_delete.TabIndex = 5;
             this.A_delete.Text = "Delete";
             this.A_delete.UseVisualStyleBackColor = true;
+            this.A_delete.Click += new System.EventHandler(this.A_delete_Click);
             // 
             // A_add
             // 
@@ -617,6 +639,7 @@
             this.A_add.TabIndex = 4;
             this.A_add.Text = "Add";
             this.A_add.UseVisualStyleBackColor = true;
+            this.A_add.Click += new System.EventHandler(this.A_add_Click);
             // 
             // A_settlement
             // 
@@ -681,6 +704,7 @@
             this.Registration.ResumeLayout(false);
             this.Registration.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.Report.ResumeLayout(false);
             this.Report.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -755,6 +779,8 @@
         private System.Windows.Forms.DateTimePicker date_to;
         private System.Windows.Forms.DateTimePicker date_from;
         private System.Windows.Forms.Button Logout;
+        private System.Windows.Forms.TextBox Price;
+        private System.Windows.Forms.Label label3;
 
     }
 }

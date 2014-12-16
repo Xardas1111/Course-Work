@@ -21,19 +21,23 @@ namespace ConsoleApplication1
         public string id;
         [DataMember]
         public string registration_form;
-        public ExecutedAction(DateTime Date, string Description, string id, string registration_form)
+        [DataMember]
+        public string price;
+        public ExecutedAction(DateTime Date, string Description, string id, string registration_form, string price)
         {
             this.Description = Description;
             this.Date = "" + Date.Year + "-" + Date.Month + "-" + Date.Day + "T" + Date.Hour + ":" + Date.Minute + ":" + Date.Second;
             this.id = id;
             this.registration_form = registration_form;
+            this.price = price;
         }
-        public ExecutedAction(string Date, string Description, string id, string registration_form)
+        public ExecutedAction(string Date, string Description, string id, string registration_form, string price)
         {
             this.Description = Description;
             this.Date = Date;
             this.id = id;
             this.registration_form = registration_form;
+            this.price = price;
         }
     }
     [DataContract]
@@ -42,11 +46,11 @@ namespace ConsoleApplication1
         [DataMember]
         public string id;
         [DataMember]
-        public string stage_id;
+        public string stage;
         [DataMember]
-        public string Object_id;
+        public string Object;
         [DataMember]
-        public string Accident_Type_id;
+        public string Accident_Type;
         [DataMember]
         public string located_money;
         [DataMember]
@@ -58,9 +62,9 @@ namespace ConsoleApplication1
         public RegistrationForm() 
         {
             id = "";
-            stage_id = "";
-            Object_id = "";
-            Accident_Type_id = "";
+            stage = "";
+            Object = "";
+            Accident_Type = "";
             located_money = "";
             used_money = "";
             Date = "";

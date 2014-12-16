@@ -42,6 +42,7 @@ namespace Course_work_3
             Type_of_accident.Text = "Accident Type";
             Budget.Text = "Budget";
             Executed_action_text.Text = "";
+            Description.Text = "Descriptiob of the accident";
             executedactionlist.Clear();
         }
 
@@ -52,42 +53,42 @@ namespace Course_work_3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            executedactionlist = new List<ExecutedAction>();
-            Country.Items.Clear();
-            Type_of_accident.Items.Clear();
-            countrylist = new List<ConsoleApplication1.Country>();
-            Receiver<Country> country_receiver = new Receiver<ConsoleApplication1.Country>();
-            SendingRequest<Country> country_sender = new SendingRequest<Country>("get", "Country", new Country());
-            ServerUpp<Country, Country>(country_sender, ref country_receiver);
-            countrylist = country_receiver.data;
-            for (int i = 0; i < country_receiver.data.Count; i++)
-            {
-                Country.Items.Add(country_receiver.data[i].name);
-            }
-            Receiver<Region> Region_receiver = new Receiver<ConsoleApplication1.Region>();
-            SendingRequest<Region> Region_sender = new SendingRequest<Region>("get", "Region", new Region());
-            ServerUpp<Region, Region>(Region_sender, ref Region_receiver);
-            regionlist = Region_receiver.data;
-            Receiver<Settlement> Settlement_receiver = new Receiver<ConsoleApplication1.Settlement>();
-            SendingRequest<Settlement> Settlement_sender = new SendingRequest<Settlement>("get", "Settlement", new Settlement());
-            ServerUpp<Settlement, Settlement>(Settlement_sender, ref Settlement_receiver);
-            settlementlist = Settlement_receiver.data;
-            Receiver<OBject> object_receiver = new Receiver<ConsoleApplication1.OBject>();
-            SendingRequest<OBject> object_sender = new SendingRequest<OBject>("get", "Object", new OBject());
-            ServerUpp<OBject, OBject>(object_sender, ref object_receiver);
-            objectlist = object_receiver.data;
-            Receiver<AccidentType> AccidentType_receiver = new Receiver<ConsoleApplication1.AccidentType>();
-            SendingRequest<AccidentType> AccidentType_sender = new SendingRequest<AccidentType>("get", "AccidentType", new AccidentType());
-            ServerUpp<AccidentType, AccidentType>(AccidentType_sender, ref AccidentType_receiver);
-            typelist = AccidentType_receiver.data;
-            for (int i = 0; i < typelist.Count; i++)
-            {
-                Type_of_accident.Items.Add(typelist[i].name);
-            }
-            Receiver<Stage> Stage_receiver = new Receiver<Stage>();
-            SendingRequest<Stage> Stage_sender = new SendingRequest<Stage>("get", "Stage", new Stage());
-            ServerUpp<Stage, Stage>(Stage_sender, ref Stage_receiver);
-            stagelist = Stage_receiver.data;
+            //executedactionlist = new List<ExecutedAction>();
+            //Country.Items.Clear();
+            //Type_of_accident.Items.Clear();
+            //countrylist = new List<ConsoleApplication1.Country>();
+            //Receiver<Country> country_receiver = new Receiver<ConsoleApplication1.Country>();
+            //SendingRequest<Country> country_sender = new SendingRequest<Country>("get", "Country", new Country());
+            //ServerUpp<Country, Country>(country_sender, ref country_receiver);
+            //countrylist = country_receiver.data;
+            //for (int i = 0; i < country_receiver.data.Count; i++)
+            //{
+            //    Country.Items.Add(country_receiver.data[i].name);
+            //}
+            //Receiver<Region> Region_receiver = new Receiver<ConsoleApplication1.Region>();
+            //SendingRequest<Region> Region_sender = new SendingRequest<Region>("get", "Region", new Region());
+            //ServerUpp<Region, Region>(Region_sender, ref Region_receiver);
+            //regionlist = Region_receiver.data;
+            //Receiver<Settlement> Settlement_receiver = new Receiver<ConsoleApplication1.Settlement>();
+            //SendingRequest<Settlement> Settlement_sender = new SendingRequest<Settlement>("get", "Settlement", new Settlement());
+            //ServerUpp<Settlement, Settlement>(Settlement_sender, ref Settlement_receiver);
+            //settlementlist = Settlement_receiver.data;
+            //Receiver<OBject> object_receiver = new Receiver<ConsoleApplication1.OBject>();
+            //SendingRequest<OBject> object_sender = new SendingRequest<OBject>("get", "Object", new OBject());
+            //ServerUpp<OBject, OBject>(object_sender, ref object_receiver);
+            //objectlist = object_receiver.data;
+            //Receiver<AccidentType> AccidentType_receiver = new Receiver<ConsoleApplication1.AccidentType>();
+            //SendingRequest<AccidentType> AccidentType_sender = new SendingRequest<AccidentType>("get", "AccidentType", new AccidentType());
+            //ServerUpp<AccidentType, AccidentType>(AccidentType_sender, ref AccidentType_receiver);
+            //typelist = AccidentType_receiver.data;
+            //for (int i = 0; i < typelist.Count; i++)
+            //{
+            //    Type_of_accident.Items.Add(typelist[i].name);
+            //}
+            //Receiver<Stage> Stage_receiver = new Receiver<Stage>();
+            //SendingRequest<Stage> Stage_sender = new SendingRequest<Stage>("get", "Stage", new Stage());
+            //ServerUpp<Stage, Stage>(Stage_sender, ref Stage_receiver);
+            //stagelist = Stage_receiver.data;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -114,12 +115,12 @@ namespace Course_work_3
             string id = "";
             for (int i = 0; i < objectlist.Count; i++) 
             {
-                if (Object.Text == objectlist[i].name) 
+                if (Object.Text == objectlist[i].name)
                 {
                     bool key = false;
-                    for (int j = 0; j < settlementlist.Count; j++) 
+                    for (int j = 0; j < settlementlist.Count; j++)
                     {
-                        if (objectlist[i].settlement == settlementlist[j].id) 
+                        if (objectlist[i].settlement == settlementlist[j].id)
                         {
                             key = true;
                             id = objectlist[i].id;
@@ -132,7 +133,7 @@ namespace Course_work_3
                     }
                 }
             }
-            form.Object_id = id;
+            form.Object = id;
             for (int i = 0; i < typelist.Count; i++)
             {
                 if (Type_of_accident.Text == typelist[i].name)
@@ -141,14 +142,33 @@ namespace Course_work_3
                     break;
                 }
             }
-            form.Accident_Type_id = id;
+            form.Accident_Type = id;
+            int current_year = Convert.ToInt32(form.Date.Substring(0, 4));
+            if (DateTime.Now.Year - current_year < 1) 
+            {
+                form.stage = "1";
+            }
+            else if (DateTime.Now.Year - current_year > 1)
+            {
+                form.stage = "3";
+            }
+            else 
+            {
+                form.stage = "2";
+            }
+            int summary = 0;
+            for (int i = 0; i < executedactionlist.Count; i++) 
+            {
+                summary += Convert.ToInt32(executedactionlist[i].price);
+            }
+            form.used_money = Convert.ToString(summary);
             SendingRequest<RegistrationForm> request = new SendingRequest<RegistrationForm>("set", "RegistrationForm", form);
             Receiver<RegistrationForm> receiver = new Receiver<RegistrationForm>();
             ServerUpp<RegistrationForm, RegistrationForm>(request, ref receiver);
             form = receiver.data[0];
             for (int i = 0; i < executedactionlist.Count; i++) 
             {
-                executedactionlist[i] = new ExecutedAction(executedactionlist[i].Date, executedactionlist[i].Description, "", form.id);
+                executedactionlist[i] = new ExecutedAction(executedactionlist[i].Date, executedactionlist[i].Description, "", form.id,executedactionlist[i].price);
                 SendingRequest<ExecutedAction> req = new SendingRequest<ExecutedAction>("set", "ExecutedActions", executedactionlist[i]);
                 Receiver<ExecutedAction> rec = new Receiver<ExecutedAction>();
                 ServerUpp<ExecutedAction, ExecutedAction>(req, ref rec);
@@ -156,7 +176,7 @@ namespace Course_work_3
             }
                 if (DialogResult.Yes == MessageBox.Show("Event Registered!!1 Do you want to print a report?", "?", MessageBoxButtons.YesNo))
                 {
-                    SendingRequest<RecommendedActions> req = new SendingRequest<RecommendedActions>("get", "RecommendedActions", new RecommendedActions("", "", "", form.Accident_Type_id, "")) ;
+                    SendingRequest<RecommendedActions> req = new SendingRequest<RecommendedActions>("find", "RecommendedActions", new RecommendedActions("", "", form.Accident_Type, "")) ;
                     Receiver<RecommendedActions> rec = new Receiver<RecommendedActions>();
                     recommendedactionlist = rec.data;
                     PrintReport(form, Country.Text, Region.Text, Settlement.Text, Object.Text);
@@ -170,6 +190,7 @@ namespace Course_work_3
             ExecutedAction action = new ExecutedAction();
             action.Date = Executed_action_date.Value.Year + "-" + Executed_action_date.Value.Month + "-" + Executed_action_date.Value.Day + "T" + Executed_action_date.Value.Hour + ":" + Executed_action_date.Value.Minute + ":" + Executed_action_date.Value.Second;
             action.Description = Executed_action_text.Text;
+            action.price = Price.Text;
             executedactionlist.Add(action);
             Executed_action_text.Text = "";
             MessageBox.Show("Added a new action!", "Result", MessageBoxButtons.OK);
@@ -265,15 +286,15 @@ namespace Course_work_3
             var doc = new Document();
             PdfWriter.GetInstance(doc, new FileStream("Report.pdf", FileMode.OpenOrCreate));
             doc.Open();
-            doc.Add(new Phrase("Registered event №" +form.id+" :", boldfont));
-            doc.Add(new Phrase("Country: "+country, font));
-            doc.Add(new Phrase("Region: "+region,font));
-            doc.Add(new Phrase("Settlement: " + settlement, font));
-            doc.Add(new Phrase("Object: " + ect, font));
+            doc.Add(new Phrase("Registered event №" + form.id + " :" + "\n", boldfont));
+            doc.Add(new Phrase("Country: " + country + "\n", font));
+            doc.Add(new Phrase("Region: " + region + "\n", font));
+            doc.Add(new Phrase("Settlement: " + settlement + "\n", font));
+            doc.Add(new Phrase("Object: " + ect + "\n", font));
             string type = "";
             for (int i = 0; i < typelist.Count; i++) 
             {
-                if (form.stage_id == typelist[i].id)
+                if (form.stage == typelist[i].id)
                 {
                     type = typelist[i].name;
                     break;
@@ -282,31 +303,31 @@ namespace Course_work_3
             string stage = "";
             for (int i = 0; i < stagelist.Count; i++)
             {
-                if (form.stage_id == stagelist[i].id)
+                if (form.stage == stagelist[i].id)
                 {
                     stage = stagelist[i].name;
                     break;
                 }
             }
-            doc.Add(new Phrase("Stage: " + stage, font));
-            doc.Add(new Phrase("Type: " + type, font));
-            doc.Add(new Phrase("Located money: " + form.located_money, font));
-            doc.Add(new Phrase("Used money: " + form.used_money, font));
-            doc.Add(new Phrase("Recommended Actions: " + ect, boldfont));
+            doc.Add(new Phrase("Stage: " + stage + "\n", font));
+            doc.Add(new Phrase("Type: " + type + "\n", font));
+            doc.Add(new Phrase("Located money: " + form.located_money + "\n", font));
+            doc.Add(new Phrase("Used money: " + form.used_money + "\n", font));
+            doc.Add(new Phrase("Recommended Actions: " + ect + "\n", boldfont));
             for (int i = 0; i < recommendedactionlist.Count; i++) 
             {
-                doc.Add(new Phrase(recommendedactionlist[i].name + ":",font));
-                doc.Add(new Phrase("Price:" + recommendedactionlist[i].price, font));
-                doc.Add(new Phrase("Description:" + recommendedactionlist[i].Description, font));
+                doc.Add(new Phrase(recommendedactionlist[i].name + ":" + "\n", font));
+                doc.Add(new Phrase("Description:" + recommendedactionlist[i].Description + "\n", font));
             }
             doc.Add(new Phrase("Executed Actions: " + ect, boldfont));
             for (int i = 0; i < executedactionlist.Count; i++)
             {
-                doc.Add(new Phrase("Date:" + executedactionlist[i].Date, font));
-                doc.Add(new Phrase("Description:" + executedactionlist[i].Description, font));
+                doc.Add(new Phrase("Date:" + executedactionlist[i].Date + "\n", font));
+                doc.Add(new Phrase("Price:" + executedactionlist[i].price + "\n", font));
+                doc.Add(new Phrase("Description:" + executedactionlist[i].Description + "\n", font));
             }
             doc.Close();
-            Process.Start(@"D:\Document.pdf");
+            Process.Start(@"Report.pdf");
         }
 
         private void Calcel_Click(object sender, EventArgs e)
@@ -314,5 +335,7 @@ namespace Course_work_3
             executedactionlist.Clear();
             Executed_action_text.Text = "Actions erased. Ready for typing";
         }
+
+        
     }
 }
