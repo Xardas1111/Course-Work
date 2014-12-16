@@ -603,6 +603,7 @@
             this.A_discard.TabIndex = 8;
             this.A_discard.Text = "Discard";
             this.A_discard.UseVisualStyleBackColor = true;
+            this.A_discard.Click += new System.EventHandler(this.A_discard_Click);
             // 
             // A_object
             // 
@@ -620,6 +621,7 @@
             this.A_find.TabIndex = 6;
             this.A_find.Text = "Find";
             this.A_find.UseVisualStyleBackColor = true;
+            this.A_find.Click += new System.EventHandler(this.A_find_Click);
             // 
             // A_delete
             // 

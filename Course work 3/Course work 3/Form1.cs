@@ -335,7 +335,5 @@ namespace Course_work_3
             executedactionlist.Clear();
             Executed_action_text.Text = "Actions erased. Ready for typing";
         }
-
-        
     }
 }
