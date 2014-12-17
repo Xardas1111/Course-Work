@@ -51,3 +51,4 @@ C:\Users\Xardas\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Deb
 C:\Users\Xardas\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course_work_3.Form1.resources
 C:\Users\Xardas\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course_work_3.Properties.Resources.resources
 C:\Users\Xardas\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course work 3.csproj.GenerateResource.Cache
+C:\Users\Xardas\Documents\GitHub\Course-Work\Course work 3\Course work 3\obj\Debug\Course_work_3.IP_set.resources

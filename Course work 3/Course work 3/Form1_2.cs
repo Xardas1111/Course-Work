@@ -44,9 +44,9 @@ namespace Course_work_3
                         MessageBox.Show("Some of the data is missing!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    else 
+                    else
                     {
-                        RecommendedActions item = new RecommendedActions(rec_act_name.Text,rec_act_desc.Text,accident_id,"");
+                        RecommendedActions item = new RecommendedActions(rec_act_name.Text, rec_act_desc.Text, accident_id, "");
                         Receiver<RecommendedActions> object_receiver = new Receiver<RecommendedActions>();
                         SendingRequest<RecommendedActions> object_sender = new SendingRequest<RecommendedActions>("set", "RecommendedActions", item);
                         ServerUpp<RecommendedActions, RecommendedActions>(object_sender, ref object_receiver);
@@ -54,6 +54,12 @@ namespace Course_work_3
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("No accident type!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            RefreshData();
         }
 
         private void c_delete_rec_Click(object sender, EventArgs e)
@@ -117,7 +123,37 @@ namespace Course_work_3
 
         private void c_find_rec_Click(object sender, EventArgs e)
         {
-            
+            string accident = "";
+            for (int i=0;i<typelist.Count;i++)
+            {
+                if (typelist[i].name == rec_act_accident_type.Text)
+                {
+                    accident = typelist[i].id;
+                }
+            }
+            if ((accident == "") && (rec_act_accident_type.Text != ""))
+            {
+                MessageBox.Show("Such accident type does not exist!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var boldfont = FontFactory.GetFont(FontFactory.TIMES_BOLD, 14);
+            var font = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12);
+            var doc = new Document();
+            PdfWriter.GetInstance(doc, new FileStream("Report.pdf", FileMode.OpenOrCreate));
+            doc.Open();
+            doc.Add(new Phrase("Matches found: \n", boldfont));
+            for (int i = 0; i < recommendedactionlist.Count; i++) 
+            {
+                if ((recommendedactionlist[i].name == ((rec_act_name.Text != "") ? rec_act_name.Text : recommendedactionlist[i].name)) 
+                    && (recommendedactionlist[i].Description == ((rec_act_desc.Text != "") ? rec_act_desc.Text : recommendedactionlist[i].Description))
+                    && (recommendedactionlist[i].Accident_Type == ((rec_act_accident_type.Text != "") ? accident : recommendedactionlist[i].Accident_Type)))
+                {
+                    doc.Add(new Phrase("Match: \n", boldfont));
+                    doc.Add(new Phrase(recommendedactionlist[i].name + ";\n", font));
+                    doc.Add(new Phrase(recommendedactionlist[i].Description + ";\n", font));
+                }
+            }
+            doc.Close();
         }
 
         private void c_discard_rec_Click(object sender, EventArgs e)
@@ -174,5 +210,6 @@ namespace Course_work_3
             recommendedactionlist = rec.data;
             Discard_Click(null, null);
         }
+
     }
 }

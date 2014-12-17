@@ -62,6 +62,12 @@
     <Compile Include="Form1_2.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="IP_set.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IP_set.Designer.cs">
+      <DependentUpon>IP_set.cs</DependentUpon>
+    </Compile>
     <Compile Include="OBject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +81,9 @@
     <Compile Include="Stage.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IP_set.resx">
+      <DependentUpon>IP_set.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

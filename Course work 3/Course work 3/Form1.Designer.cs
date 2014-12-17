@@ -47,6 +47,9 @@
             this.Region = new System.Windows.Forms.ComboBox();
             this.Country = new System.Windows.Forms.ComboBox();
             this.Report = new System.Windows.Forms.TabPage();
+            this.rep_refresh = new System.Windows.Forms.Button();
+            this.Delete_event = new System.Windows.Forms.Button();
+            this.rec_id = new System.Windows.Forms.ComboBox();
             this.rep_discard = new System.Windows.Forms.Button();
             this.rep_make = new System.Windows.Forms.Button();
             this.rep_type_of_accident = new System.Windows.Forms.ComboBox();
@@ -59,9 +62,8 @@
             this.date_to = new System.Windows.Forms.DateTimePicker();
             this.date_from = new System.Windows.Forms.DateTimePicker();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.A_recommended_actions = new System.Windows.Forms.GroupBox();
             this.rec_act_desc = new System.Windows.Forms.RichTextBox();
             this.c_discard_rec = new System.Windows.Forms.Button();
             this.c_find_rec = new System.Windows.Forms.Button();
@@ -92,7 +94,7 @@
             this.groupBox1.SuspendLayout();
             this.Report.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.A_recommended_actions.SuspendLayout();
             this.A_accident_types.SuspendLayout();
             this.A_object_management.SuspendLayout();
             this.SuspendLayout();
@@ -247,6 +249,7 @@
             // 
             // Date
             // 
+            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.Date.Location = new System.Drawing.Point(6, 297);
             this.Date.Name = "Date";
             this.Date.Size = new System.Drawing.Size(168, 20);
@@ -284,6 +287,9 @@
             // 
             // Report
             // 
+            this.Report.Controls.Add(this.rep_refresh);
+            this.Report.Controls.Add(this.Delete_event);
+            this.Report.Controls.Add(this.rec_id);
             this.Report.Controls.Add(this.rep_discard);
             this.Report.Controls.Add(this.rep_make);
             this.Report.Controls.Add(this.rep_type_of_accident);
@@ -303,6 +309,36 @@
             this.Report.Text = "Report";
             this.Report.UseVisualStyleBackColor = true;
             // 
+            // rep_refresh
+            // 
+            this.rep_refresh.Location = new System.Drawing.Point(179, 272);
+            this.rep_refresh.Name = "rep_refresh";
+            this.rep_refresh.Size = new System.Drawing.Size(109, 34);
+            this.rep_refresh.TabIndex = 1;
+            this.rep_refresh.Text = "Refresh data";
+            this.rep_refresh.UseVisualStyleBackColor = true;
+            this.rep_refresh.Click += new System.EventHandler(this.rep_refresh_Click);
+            // 
+            // Delete_event
+            // 
+            this.Delete_event.Location = new System.Drawing.Point(6, 272);
+            this.Delete_event.Name = "Delete_event";
+            this.Delete_event.Size = new System.Drawing.Size(167, 34);
+            this.Delete_event.TabIndex = 23;
+            this.Delete_event.Text = "Delete event";
+            this.Delete_event.UseVisualStyleBackColor = true;
+            this.Delete_event.Click += new System.EventHandler(this.Delete_event_Click);
+            // 
+            // rec_id
+            // 
+            this.rec_id.FormattingEnabled = true;
+            this.rec_id.Location = new System.Drawing.Point(6, 3);
+            this.rec_id.Name = "rec_id";
+            this.rec_id.Size = new System.Drawing.Size(167, 21);
+            this.rec_id.TabIndex = 22;
+            this.rec_id.Text = "Id";
+            this.rec_id.TextChanged += new System.EventHandler(this.rec_id_text_changed);
+            // 
             // rep_discard
             // 
             this.rep_discard.Location = new System.Drawing.Point(6, 312);
@@ -314,17 +350,18 @@
             // 
             // rep_make
             // 
-            this.rep_make.Location = new System.Drawing.Point(6, 242);
+            this.rep_make.Location = new System.Drawing.Point(6, 243);
             this.rep_make.Name = "rep_make";
             this.rep_make.Size = new System.Drawing.Size(167, 23);
             this.rep_make.TabIndex = 20;
             this.rep_make.Text = "Make reports";
             this.rep_make.UseVisualStyleBackColor = true;
+            this.rep_make.Click += new System.EventHandler(this.rep_make_Click);
             // 
             // rep_type_of_accident
             // 
             this.rep_type_of_accident.FormattingEnabled = true;
-            this.rep_type_of_accident.Location = new System.Drawing.Point(6, 117);
+            this.rep_type_of_accident.Location = new System.Drawing.Point(6, 138);
             this.rep_type_of_accident.Name = "rep_type_of_accident";
             this.rep_type_of_accident.Size = new System.Drawing.Size(167, 21);
             this.rep_type_of_accident.TabIndex = 19;
@@ -333,7 +370,7 @@
             // rep_object
             // 
             this.rep_object.FormattingEnabled = true;
-            this.rep_object.Location = new System.Drawing.Point(6, 90);
+            this.rep_object.Location = new System.Drawing.Point(6, 111);
             this.rep_object.Name = "rep_object";
             this.rep_object.Size = new System.Drawing.Size(167, 21);
             this.rep_object.TabIndex = 18;
@@ -342,34 +379,37 @@
             // rep_settlement
             // 
             this.rep_settlement.FormattingEnabled = true;
-            this.rep_settlement.Location = new System.Drawing.Point(6, 63);
+            this.rep_settlement.Location = new System.Drawing.Point(6, 84);
             this.rep_settlement.Name = "rep_settlement";
             this.rep_settlement.Size = new System.Drawing.Size(167, 21);
             this.rep_settlement.TabIndex = 17;
             this.rep_settlement.Text = "Settlement";
+            this.rep_settlement.TextChanged += new System.EventHandler(this.rep_settlement_changed);
             // 
             // rep_region
             // 
             this.rep_region.FormattingEnabled = true;
-            this.rep_region.Location = new System.Drawing.Point(6, 36);
+            this.rep_region.Location = new System.Drawing.Point(6, 57);
             this.rep_region.Name = "rep_region";
             this.rep_region.Size = new System.Drawing.Size(167, 21);
             this.rep_region.TabIndex = 16;
             this.rep_region.Text = "Region";
+            this.rep_region.TextChanged += new System.EventHandler(this.rep_region_changed);
             // 
             // rep_country
             // 
             this.rep_country.FormattingEnabled = true;
-            this.rep_country.Location = new System.Drawing.Point(6, 9);
+            this.rep_country.Location = new System.Drawing.Point(6, 30);
             this.rep_country.Name = "rep_country";
             this.rep_country.Size = new System.Drawing.Size(167, 21);
             this.rep_country.TabIndex = 15;
             this.rep_country.Text = "Country";
+            this.rep_country.TextChanged += new System.EventHandler(this.rep_country_changed);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 192);
+            this.label2.Location = new System.Drawing.Point(6, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 13);
             this.label2.TabIndex = 14;
@@ -378,7 +418,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 151);
+            this.label1.Location = new System.Drawing.Point(6, 162);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 13;
@@ -386,23 +426,24 @@
             // 
             // date_to
             // 
-            this.date_to.Location = new System.Drawing.Point(6, 208);
+            this.date_to.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.date_to.Location = new System.Drawing.Point(6, 217);
             this.date_to.Name = "date_to";
             this.date_to.Size = new System.Drawing.Size(167, 20);
             this.date_to.TabIndex = 12;
             // 
             // date_from
             // 
-            this.date_from.Location = new System.Drawing.Point(6, 167);
+            this.date_from.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.date_from.Location = new System.Drawing.Point(6, 178);
             this.date_from.Name = "date_from";
             this.date_from.Size = new System.Drawing.Size(167, 20);
             this.date_from.TabIndex = 11;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.Logout);
-            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Controls.Add(this.A_recommended_actions);
             this.tabPage1.Controls.Add(this.A_accident_types);
             this.tabPage1.Controls.Add(this.A_object_management);
             this.tabPage1.Controls.Add(this.LoginButton);
@@ -416,15 +457,6 @@
             this.tabPage1.Text = "Admin";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(637, 235);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "label3";
-            // 
             // Logout
             // 
             this.Logout.Location = new System.Drawing.Point(801, 31);
@@ -433,22 +465,23 @@
             this.Logout.TabIndex = 11;
             this.Logout.Text = "Logout";
             this.Logout.UseVisualStyleBackColor = true;
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
-            // groupBox3
+            // A_recommended_actions
             // 
-            this.groupBox3.Controls.Add(this.rec_act_desc);
-            this.groupBox3.Controls.Add(this.c_discard_rec);
-            this.groupBox3.Controls.Add(this.c_find_rec);
-            this.groupBox3.Controls.Add(this.c_delete_rec);
-            this.groupBox3.Controls.Add(this.c_add_rec);
-            this.groupBox3.Controls.Add(this.rec_act_accident_type);
-            this.groupBox3.Controls.Add(this.rec_act_name);
-            this.groupBox3.Location = new System.Drawing.Point(362, 6);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(150, 329);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Recommended actions";
+            this.A_recommended_actions.Controls.Add(this.rec_act_desc);
+            this.A_recommended_actions.Controls.Add(this.c_discard_rec);
+            this.A_recommended_actions.Controls.Add(this.c_find_rec);
+            this.A_recommended_actions.Controls.Add(this.c_delete_rec);
+            this.A_recommended_actions.Controls.Add(this.c_add_rec);
+            this.A_recommended_actions.Controls.Add(this.rec_act_accident_type);
+            this.A_recommended_actions.Controls.Add(this.rec_act_name);
+            this.A_recommended_actions.Location = new System.Drawing.Point(362, 6);
+            this.A_recommended_actions.Name = "A_recommended_actions";
+            this.A_recommended_actions.Size = new System.Drawing.Size(150, 329);
+            this.A_recommended_actions.TabIndex = 10;
+            this.A_recommended_actions.TabStop = false;
+            this.A_recommended_actions.Text = "Recommended actions";
             // 
             // rec_act_desc
             // 
@@ -698,7 +731,8 @@
             this.ClientSize = new System.Drawing.Size(939, 391);
             this.Controls.Add(this.Admin);
             this.Name = "Form1";
-            this.Text = "Putin huilo";
+            this.Text = "Application for registration of hazardous radioactive events (administration part" +
+    " included)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Admin.ResumeLayout(false);
             this.Registration.ResumeLayout(false);
@@ -709,8 +743,8 @@
             this.Report.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.A_recommended_actions.ResumeLayout(false);
+            this.A_recommended_actions.PerformLayout();
             this.A_accident_types.ResumeLayout(false);
             this.A_accident_types.PerformLayout();
             this.A_object_management.ResumeLayout(false);
@@ -752,7 +786,7 @@
         private System.Windows.Forms.Button A_add;
         private System.Windows.Forms.Button A_discard;
         private System.Windows.Forms.TextBox A_object;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox A_recommended_actions;
         private System.Windows.Forms.Button c_discard_rec;
         private System.Windows.Forms.Button c_find_rec;
         private System.Windows.Forms.Button c_delete_rec;
@@ -779,7 +813,9 @@
         private System.Windows.Forms.DateTimePicker date_from;
         private System.Windows.Forms.Button Logout;
         private System.Windows.Forms.TextBox Price;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox rec_id;
+        private System.Windows.Forms.Button Delete_event;
+        private System.Windows.Forms.Button rep_refresh;
 
     }
 }

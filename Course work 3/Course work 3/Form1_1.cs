@@ -387,7 +387,6 @@ namespace Course_work_3
                     }
                 }
             }
-            label3.Text = action + "";
             if (action == 1)
             {
                 string country_id = "";
